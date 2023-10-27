@@ -1,0 +1,33 @@
+GET: 
+Każa strona zaczyna się od zapytania typu "get". Przeglądarka wysyła żadanie get, żeby otworzyć stronę internetową.
+Żądanie to służy do pobrania aktualnej reprezentacji zasobu, oznacza to pobranie aktualnej wersji strony znajdującej
+się pod danym adresem lub jego wyświetlenie, np. wyświetlenie formularza lub strony.
+Odpowiedź na żądanie get może być przechowywane w cache'u.
+
+POST:
+Żądanie post są przetwarzane przez serwer zgodnie z założeniami dla danego zasobu.
+Opis sprowadza się do:
+-używania POST do przesyłania zawartości formularzy,
+-dodawania nowego zasobu,
+-dodawanie danych do istniejącego zasobu.
+Odpowiedzi na żądania typu POST nie są przechowywane w cache’u.
+
+PUT: 
+Żądanie PUT służy do aktualizacji danego zasobu.
+Zgodnie ze specyfikacją ciało wiadomości powinno posłużyć do ustawienia stanu zasobu na serwerze.
+W przypadku gdy zasób nie istaniał żadanie tego typu powinno go utworzyć. Gdy zasób istnieje jego stan powinien być 
+ustawiony na ten przekazany w ciele wiadomości.
+Odpowiedzi na żądanie typu PUT nie powinny być przechowywane w cache’u.
+
+DELETE:
+Zapytania tego typu służą do usuwania zasobów.
+Na przykład w którymś z wcześniejszych zapytań dany zasób może być utworzony przy pomocy żądania typu POST. 
+Następnie może on być usunięty przy pomocy DELETE.
+Odpowiedzi na żądania tego typu nie powinny zawierać ciała wiadomości.
+Odpowiedzi na żądania typu DELETE nie powinny być umieszczane w cache’u.
+
+PATCH: 
+Metoda Patch podobnie jak Put służy do aktualizacji danych o obiekcie, jednak wymaga ona, by dany obiekt istniał.
+A to dlatego, że nie przesyła ona w żądaniu kompletu danych, a jedynie te dane, które mają zostać zaktualizowane.
+W odpowiedzi powinniśmy wysyłać NO_CONTENT, bądź OK i w odpowiedzi wysłać dane o zaktualizowanym obiekcie.
+Żądania typu PATCH kierowane są na adres wraz z ID obiektu, który chcemy zaktualizować np. /guests/2
